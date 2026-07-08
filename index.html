@@ -1,74 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ultra Speed Test</title>
-<style>
-body {
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 80px;
-}
 
-.box {
-    background: #222;
-    width: 400px;
-    margin: auto;
-    padding: 40px;
-    border-radius: 20px;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.speed {
-    font-size: 60px;
-    color: #00ff88;
-}
+<title>Local Speed Test</title>
 
-button {
-    margin-top: 30px;
-    padding: 15px 30px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-</style>
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="box">
-    <h1>⚡ Ultra Speed Test</h1>
-    <div class="speed" id="speed">0 Mbps</div>
-    <p id="status">Ready</p>
+<div id="background"></div>
+<div id="glow"></div>
 
-    <button onclick="start()">Start Test</button>
+<div class="container">
+
+    <div class="panel">
+
+        <div class="title">
+            Local Speed Test
+        </div>
+
+        <div class="speed-circle">
+
+            <div class="speed">
+
+                <div id="speed">
+                    0
+                </div>
+
+                <div class="unit">
+                    Mbps
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="status" id="status">
+            Ready
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="card">
+
+                <div class="card-title">
+                    Ping
+                </div>
+
+                <div
+                    class="card-value"
+                    id="ping">
+                    --
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    Download
+                </div>
+
+                <div
+                    class="card-value"
+                    id="download">
+                    --
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    Upload
+                </div>
+
+                <div
+                    class="card-value"
+                    id="upload">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="start"
+            id="startButton">
+
+            Start Test
+
+        </button>
+
+        <div class="footer">
+
+            Server:
+            <span id="serverName">
+                localhost
+            </span>
+
+        </div>
+
+    </div>
+
 </div>
 
-<script>
-function start() {
-    let speed = 0;
-    let target = 2500 + Math.random() * 500;
-
-    document.getElementById("status").innerHTML = "Testing...";
-
-    let timer = setInterval(() => {
-        speed += Math.floor(Math.random() * 150);
-
-        if(speed >= target) {
-            speed = target.toFixed(0);
-            clearInterval(timer);
-
-            document.getElementById("status").innerHTML =
-                "Test Complete 🚀";
-        }
-
-        document.getElementById("speed").innerHTML =
-            speed + " Mbps";
-
-    }, 100);
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
