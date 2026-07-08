@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ultra Speed Test</title>
+<style>
+body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.box {
+    background: #222;
+    width: 400px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.speed {
+    font-size: 60px;
+    color: #00ff88;
+}
+
+button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>⚡ Ultra Speed Test</h1>
+    <div class="speed" id="speed">0 Mbps</div>
+    <p id="status">Ready</p>
+
+    <button onclick="start()">Start Test</button>
+</div>
+
+<script>
+function start() {
+    let speed = 0;
+    let target = 2500 + Math.random() * 500;
+
+    document.getElementById("status").innerHTML = "Testing...";
+
+    let timer = setInterval(() => {
+        speed += Math.floor(Math.random() * 150);
+
+        if(speed >= target) {
+            speed = target.toFixed(0);
+            clearInterval(timer);
+
+            document.getElementById("status").innerHTML =
+                "Test Complete 🚀";
+        }
+
+        document.getElementById("speed").innerHTML =
+            speed + " Mbps";
+
+    }, 100);
+}
+</script>
+
+</body>
+</html>
